@@ -1,0 +1,166 @@
+/*All page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root {
+    --orange: #F8941E;
+    --vert: #00A650;
+}
+
+* {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    word-wrap: break-word;
+    background: #f1f5f9;
+}
+
+
+/*End All page*/
+
+
+/*Header*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--vert);
+    color: white;
+    padding: 0.5em;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+header .menu {
+    display: none;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    font-size: 1rem;
+    padding: 0 2em;
+}
+
+header nav .close {
+    display: none;
+}
+
+
+/*End Header*/
+
+
+/*main*/
+
+main {
+    padding: 85px 1.5rem 2rem 1.5rem;
+}
+
+main .container .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main .container .form form {
+    padding: 15px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .2);
+}
+
+main .container .form form .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.row-radio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+main .container .form form .row:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+main .container .form form .row label {
+    width: 250px;
+}
+
+main .container .form form .row :nth-child(2) {
+    width: 250px;
+    outline: none;
+    height: 50px;
+    padding: 5px;
+}
+
+main .container .form form .row .text {
+    font-weight: 600;
+    padding: 0;
+}
+
+main .container .form form .button button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: ease 0.3s;
+    color: #fff;
+}
+
+main .container .form form .button button.success {
+    background: var(--vert);
+    border: var(--vert) 1px solid;
+}
+
+main .container .form form .button button.success:hover {
+    background: #fff;
+    color: var(--vert);
+}
+
+main .container .form form .button button.cancel {
+    background: red;
+    border: red 1px solid;
+}
+
+main .container .form form .button button.cancel:hover {
+    background: #fff;
+    color: red;
+}
+
+
+/*end main*/
+
+
+/********************************media query************************/
+
+
+/*578px*/
+
+@media (max-width:578px) {
+    /*main*/
+    main .container .form form .row {
+        justify-content: center;
+    }
+    main .container .form form .button {
+        display: flex;
+        justify-content: center;
+    }
+    main .container .form form .button :first-child {
+        margin-right: 10px;
+    }
+    /*main*/
+}

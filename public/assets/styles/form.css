@@ -1,0 +1,162 @@
+/*All page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root {
+    --orange: #F8941E;
+    --vert: #00A650;
+}
+
+* {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+
+/*End All page*/
+
+
+/*Header*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--vert);
+    color: white;
+    padding: 0.5em;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+
+/*End Header*/
+
+
+/*main*/
+
+main {
+    margin-bottom: 300px;
+}
+
+main .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .form-container form {
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, .3);
+    padding: 30px;
+    /* margin-top: 300px; */
+    border-radius: 5px;
+    position: absolute;
+    top: 150px;
+}
+
+main .form-container form .form-div input {
+    width: 300px;
+    height: 50px;
+    padding: 0 10px;
+    outline: none;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, .3);
+    margin-top: 20px;
+}
+
+.form-border {
+    border: 2px solid #a1a1a1;
+    margin: 70px 150px 0 150px;
+    padding: 70px;
+    background-color: #a1a1a1
+}
+
+main .form-container form .form-div button {
+    width: 324px;
+    height: 50px;
+    padding: 0 10px;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    background: var(--vert);
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+main .form-container form .form-div button:hover {
+    background: #fff;
+    color: var(--vert);
+    border: var(--vert) 1px solid;
+    cursor: pointer;
+}
+
+main .form-container form .top {
+    color: var(--orange);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+main .form-container form .bottom {
+    margin-top: 20px;
+    color: blue;
+    text-align: center;
+}
+
+main .form-container form .bottom-simple {
+    margin-top: 20px;
+    ;
+    text-align: center;
+}
+
+
+/*end main*/
+
+
+/*************************************MEDIA QUERY**********************************/
+
+
+/*576PX*/
+
+@media (max-width: 576px)
+/*main*/
+
+{
+    main .form-container form .form-div input {
+        width: 200px;
+        height: 50px;
+        padding: 0 10px;
+        outline: none;
+        border-radius: 5px;
+        border-color: rgba(0, 0, 0, .3);
+        margin-top: 20px;
+    }
+    main .form-container form .form-div button {
+        width: 224px;
+        height: 50px;
+        padding: 0 10px;
+        outline: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        background: var(--vert);
+        color: #fff;
+        border: none;
+        transition: 0.3s;
+    }
+}
+
+
+/*end main*/
+
+
+/*END 576*/
