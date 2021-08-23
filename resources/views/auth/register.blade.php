@@ -56,7 +56,7 @@
             <input type="text" class="@error('nom') is-invalid @enderror" value="{{ old('nom') }}" name="nom" placeholder="Nom" required>
             @error('nom')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('nom')}}</em>
               </div>
             @enderror
           </div>
@@ -64,7 +64,7 @@
             <input type="text" class="@error('prenoms') is-invalid @enderror" value="{{ old('prenoms') }}" name="prenoms" placeholder="Prénoms" required>
             @error('prenoms')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('prenoms')}}</em>
               </div>
             @enderror
           </div>
@@ -72,7 +72,7 @@
             <input type="text" name="contact" value="{{ old('contact') }}" class="@error('contact') is-invalid @enderror" placeholder="Contact" required>
             @error('contact')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('contact')}}</em>
               </div>
             @enderror
           </div>
@@ -80,7 +80,7 @@
             <input type="email" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror" placeholder="Mail" required>
             @error('email')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('email')}}</em>
               </div>
             @enderror
           </div>
@@ -88,15 +88,15 @@
             <input type="text" name="matricule" value="{{ old('matricule') }}" pattern="[0-9]{6}[A-Z]{1}" class="@error('matricule') is-invalid @enderror" placeholder="Matricule">
             @error('matricule')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('matricule')}}</em>
               </div>
             @enderror
           </div>
           <div class="form-div">
-            <input type="password" name="password" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required>
+            <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required> <i class="fas fa-eye" onclick="Afficher()"></i>
             @error('password')
               <div class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <em>{{$errors->first('password')}}</em>
               </div>
             @enderror
           </div>

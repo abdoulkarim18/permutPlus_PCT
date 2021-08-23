@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('assets/styles/animation.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/styles/flash.css') }}">
         <script src="{{ asset('assets/scripts/main.js') }}" async></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
     <body>
         <header>
@@ -28,5 +29,19 @@
             @yield('content')
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            function Afficher()
+            {
+            var input = document.getElementById("motdepasse");
+            if (input.type === "password")
+            {
+            input.type = "text";
+            }
+            else
+            {
+            input.type = "password";
+            }
+            }
+        </script>
     </body>
 </html>

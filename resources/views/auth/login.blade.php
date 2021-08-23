@@ -57,15 +57,15 @@
       <input type="text" name="matricule" pattern="[0-9]{6}[A-Z]{1}" placeholder="Matricule" id="matricule" required>
       @error('matricule')
         <div class="invalid-feedback" role="alert">
-          <strong>{{ $message }}</strong>
+            <em>{{$errors->first('matricule')}}</em>
         </div>
       @enderror
     </div>
     <div class="form-div">
-      <input type="password" name="password" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required>
+      <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required> <i class="fas fa-eye" onclick="Afficher()"></i>
       @error('password')
         <div class="invalid-feedback" role="alert">
-          <strong>{{ $message }}</strong>
+         <em>{{$errors->first('password')}}</em>
         </div>
       @enderror
     </div>
