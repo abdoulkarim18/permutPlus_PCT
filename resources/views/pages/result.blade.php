@@ -39,12 +39,12 @@ Résultats
 <main>
     <div class="search-bar">
 
-        <form action="{{ route('result') }}" class="search-form">
+        <form action="{{ route('resultIep') }}" class="search-form">
             <div class="select-search">
-                <select name="locality" id="locality">
-                    <option value="">Veuillez choisir une DREN</option>
-                    @foreach($drens as $dren)
-                    <option value="{{ $dren->name }}">{{ $dren->name }}</option>
+                <select name="iep" id="iep">
+                    <option value="">Veuillez filtrer par IEP</option>
+                    @foreach($ieps as $iep)
+                    <option value="{{ $iep->name }}">{{ $iep->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -60,9 +60,9 @@ Résultats
             @if($result->user->id != Auth::user()->id)
 
             <div class="resultat">
-                <div class="locality"><b>IEP d'origine :</b> {{ $result->oiep }}</div>
+                <div class="odren"><b>IEP d'origine :</b> {{ $result->oiep }}</div>
                 <div class="school"><b>Ecole d'origine :</b>  {{ $result->oschool }}</div>
-                <div class="locality"><b>IEP souhaitée :</b> {{ $result->siep }}</div>
+                <div class="siep"><b>IEP souhaitée :</b> {{ $result->siep }}</div>
                 <div><b>Nom :</b>{{ $result->user->nom }}</div>
                 <div><b>Prénom(s) :</b>{{ $result->user->prenoms }}</div>
                 <div><b>Email : </b>{{ $result->email }}</div>

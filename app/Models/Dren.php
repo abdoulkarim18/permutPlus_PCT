@@ -14,4 +14,7 @@ class Dren extends Model
     {
         return $this->hasMany(Iep::class);
     }
+
+
+    
 }

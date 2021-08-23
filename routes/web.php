@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('accueil');
 Route::get('search', [HomeController::class, 'search'])->name('search');
 Route::get('result', [HomeController::class, 'result'])->name('result');
+Route::get('result-iep', [HomeController::class, 'resultIep'])->name('resultIep');
 Route::get('/inspection/{id}', [PermutationController::class, 'inspections'])->name('inspections');
 Route::get('/ecoles/{id}', [PermutationController::class, 'ecoles'])->name('ecoles');
 

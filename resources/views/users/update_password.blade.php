@@ -1,14 +1,14 @@
 @extends('layouts.default')
 
 @section('dynamicPageTitle')
-Nouveau mot de passe - TEACHSWAP
+update mot de passe
 @stop
 
 @section('content')
 <div>
     <header>
         <div class="logo">
-            <a href="/">LOGO</a>
+            <a href="/">PERMUT+</a>
         </div>
         <div class="menu"><i class="las la-bars"></i></div>
     </header>
@@ -62,7 +62,7 @@ Nouveau mot de passe - TEACHSWAP
                 @if(session('message'))
                 @if(session('success') == 'false')
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>{{session('message')}} </strong> 
+                    <strong>{{session('message')}} </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif

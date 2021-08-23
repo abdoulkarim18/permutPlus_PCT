@@ -27,7 +27,7 @@ class PermutationController extends Controller
      */
     public function index()
     {
-        $permutations=CustomRequest::with('user')->get();
+        $permutations=CustomRequest::with('user')->orderBy('created_at','desc')->get();
 
         return view('users.permutations.index', compact('permutations'));
     }
@@ -54,6 +54,9 @@ class PermutationController extends Controller
         $sdren=DB::table('drens')->where('id', $request->sdren)->first()->name;
         $siep=DB::table('ieps')->where('id', $request->siep)->first()->name;
         //dd($siep);
+        if(Auth::user()->state==0){
+            return redirect()->back()->with('info','Veuiller completer votre profile pour pouvoir realiser cette opération');
+        }
         if($customRequest->sdren!=$sdren){
             return redirect()->back()->with("error","Votre DREN n'est pas celle souhaitée  par le demandeur");
         }else{
