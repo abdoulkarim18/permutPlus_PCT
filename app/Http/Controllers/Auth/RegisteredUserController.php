@@ -10,7 +10,7 @@ use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use MercurySeries\Flashy\Flashy;
 
 class RegisteredUserController extends Controller
 {
@@ -21,6 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        Flashy::primary('Merci de bien renseigner tous les champs !');
         return view('auth.register');
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\CustomRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Apply;
+use MercurySeries\Flashy\Flashy;
 
 class APermutController extends Controller
 {
@@ -21,7 +22,8 @@ class APermutController extends Controller
     public function index()
     {
         $permutations=CustomRequest::with('user')->orderBy('created_at','desc')->paginate(15);
-    
+
+        Flashy::info('Bienvenus sur la liste des permutations.');
         return view('admin.permutation.index', compact('permutations'));
     }
 
@@ -96,7 +98,8 @@ class APermutController extends Controller
 
         $permutation->delete();
 
-        return redirect()->back()
-        ->with('success','demande de permutation supprimée avec succès!');
+        Flashy::error('demande de permutation supprimée avec succès!');
+        return redirect()->back();
+        // ->with('success','demande de permutation supprimée avec succès!');
     }
 }

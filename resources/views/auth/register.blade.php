@@ -53,7 +53,7 @@
           </div>
 
           <div class="form-div">
-            <input type="text" class="@error('nom') is-invalid @enderror" value="{{ old('nom') }}" name="nom" placeholder="Nom" required>
+            <input type="text" class="@error('nom') is-invalid @enderror" value="{{ old('nom') }}" name="nom" placeholder="Nom">
             @error('nom')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('nom')}}</em>
@@ -61,7 +61,7 @@
             @enderror
           </div>
           <div class="form-div">
-            <input type="text" class="@error('prenoms') is-invalid @enderror" value="{{ old('prenoms') }}" name="prenoms" placeholder="Prénoms" required>
+            <input type="text" class="@error('prenoms') is-invalid @enderror" value="{{ old('prenoms') }}" name="prenoms" placeholder="Prénoms">
             @error('prenoms')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('prenoms')}}</em>
@@ -69,7 +69,7 @@
             @enderror
           </div>
           <div class="form-div">
-            <input type="text" name="contact" value="{{ old('contact') }}" class="@error('contact') is-invalid @enderror" placeholder="Contact" required>
+            <input type="text" name="contact" value="{{ old('contact') }}" class="@error('contact') is-invalid @enderror" placeholder="Contact">
             @error('contact')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('contact')}}</em>
@@ -77,7 +77,7 @@
             @enderror
           </div>
           <div class="form-div">
-            <input type="email" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror" placeholder="Mail" required>
+            <input type="email" name="email" value="{{ old('email') }}" class="@error('email') is-invalid @enderror" placeholder="Mail">
             @error('email')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('email')}}</em>
@@ -85,7 +85,7 @@
             @enderror
           </div>
           <div class="form-div">
-            <input type="text" name="matricule" value="{{ old('matricule') }}" pattern="[0-9]{6}[A-Z]{1}" class="@error('matricule') is-invalid @enderror" placeholder="Matricule">
+            <input type="text" name="matricule" value="{{ old('matricule') }}" class="@error('matricule') is-invalid @enderror" placeholder="Matricule">
             @error('matricule')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('matricule')}}</em>
@@ -93,7 +93,7 @@
             @enderror
           </div>
           <div class="form-div">
-            <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required> <i class="fas fa-eye" onclick="Afficher()"></i>
+            <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe"> <i class="fas fa-eye" onclick="Afficher()"></i>
             @error('password')
               <div class="invalid-feedback" role="alert">
                 <em>{{$errors->first('password')}}</em>

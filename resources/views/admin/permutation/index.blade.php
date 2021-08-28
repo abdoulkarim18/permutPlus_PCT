@@ -7,13 +7,14 @@
 
 @section('content')
 <div>
-    
+
     <table class="operations-table">
         <thead>
             <tr>
                 <th>IEP d'origine</th>
                 <th>IEP souhaitée</th>
                 <th>Nom & Prénoms</th>
+                <th>Date Publication </th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                     <td>{{ $permutation->oiep}}</td>
                     <td>{{ $permutation->siep}}</td>
                     <td>{{ $permutation->user->nom }} {{ $permutation->user->prenoms }}</td>
+                    <td>{{$permutation->created_at}}</td>
                     <td>
                         <div class="text-center mb-3">
                             <a class="btn btn-dark" href="{{route('admin-avis.show', $permutation->id)}}">VOIR</a>

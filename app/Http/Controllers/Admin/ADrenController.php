@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
+use MercurySeries\Flashy\Flashy;
 
 class ADrenController extends Controller
 {
@@ -23,6 +24,7 @@ class ADrenController extends Controller
     public function index()
     {
         $drens=Dren::orderBy('name', 'asc')->paginate(15);
+        Flashy::info('Bienvenus sur la liste des DRENs.');
         return view('admin.dren.index', compact('drens'));
     }
 
@@ -39,12 +41,12 @@ class ADrenController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function importExcelDren(Request $request) 
+    public function importExcelDren(Request $request)
     {
         Excel::import(new DrenImport,$request->import_file);
 
         Session::put('success', 'Your file is imported successfully in database.');
-           
+
         return redirect()->route('admin-drens.index');
     }
 
@@ -59,9 +61,11 @@ class ADrenController extends Controller
         $data=$this->validate($request, [
             'name' => 'required|string'
         ]);
-        Dren::create($data);
-        
-        return redirect()->route('admin-drens.index')->with('success', 'Enregistrement effectué avec succès!');
+        $store = Dren::create($data);
+
+        Flashy::primary(sprintf('DREN "%s" enregistrée avec succès!', $store->name));
+        return redirect()->route('admin-drens.index');
+        // ->with('success', 'Enregistrement effectué avec succès!')
     }
 
     /**
@@ -84,7 +88,7 @@ class ADrenController extends Controller
     public function edit($id)
     {
         $dren=Dren::find($id);
-        
+
         return view('admin.dren.edit', compact('dren'));
     }
 
@@ -103,7 +107,9 @@ class ADrenController extends Controller
         ]);
         $dren->update(['name' => $request->name]);
 
-        return redirect()->route('admin-drens.index')->with('success', 'Modification effectuée avec succès!');
+        Flashy::success(sprintf('DREN "%s" modifiée avec succès!', $dren->name));
+        return redirect()->route('admin-drens.index');
+        // ->with('success', 'Modification effectuée avec succès!')
     }
 
     /**
@@ -115,10 +121,11 @@ class ADrenController extends Controller
     public function destroy($id)
     {
         $dren=Dren::find($id);
-       
+
         $dren->delete();
 
-        return redirect()->back()
-        ->with('success','DREN supprimée avec succès!');
+        Flashy::error(sprintf('DREN "%s" supprimée avec succès!', $dren->name));
+        return redirect()->back();
+        // ->with('success','DREN supprimée avec succès!');
     }
 }

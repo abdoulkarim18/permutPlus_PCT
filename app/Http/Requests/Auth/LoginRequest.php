@@ -28,9 +28,9 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
-        
+
         return [
-            'matricule' => 'required',
+            'matricule' => ['required','Regex:/^[0-9]{6}[A-Z]{1}/','unique:users'],
             'password' => 'required',
         ];
     }

@@ -74,14 +74,14 @@ Tableau de bord Détail Permutation
                         <strong>En attente</strong>
                     @elseif($permutation->isAccepted==1)
                         <strong>Accepter</strong>
-                    @else 
+                    @else
                         <strong>Refuser</strong>
                     @endif
                 </span>
             </div>
         </div>
 
-       
+
     </div>
     @if($responses->count()>0)
     <table class="operations-table mt-3">
@@ -112,7 +112,7 @@ Tableau de bord Détail Permutation
                             <strong>En attente</strong>
                         @elseif($response->isAccepted==1)
                             <strong>Accepter</strong>
-                        @else 
+                        @else
                             <strong>Refuser</strong>
                         @endif
                     </td>

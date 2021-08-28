@@ -54,7 +54,7 @@
     </div>
     @csrf
     <div class="form-div">
-      <input type="text" name="matricule" pattern="[0-9]{6}[A-Z]{1}" placeholder="Matricule" id="matricule" required>
+      <input type="text" name="matricule" placeholder="Matricule" id="matricule">
       @error('matricule')
         <div class="invalid-feedback" role="alert">
             <em>{{$errors->first('matricule')}}</em>
@@ -62,7 +62,7 @@
       @enderror
     </div>
     <div class="form-div">
-      <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe" required> <i class="fas fa-eye" onclick="Afficher()"></i>
+      <input type="password" name="password" id="motdepasse" class="@error('password') is-invalid @enderror" placeholder="Mot de passe"> <i class="fas fa-eye" onclick="Afficher()"></i>
       @error('password')
         <div class="invalid-feedback" role="alert">
          <em>{{$errors->first('password')}}</em>

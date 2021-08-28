@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\EtablissementImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
+use MercurySeries\Flashy\Flashy;
 
 class ASchoolController extends Controller
 {
@@ -25,8 +26,8 @@ class ASchoolController extends Controller
      */
     public function index()
     {
-        $schools=Etablissement::with('iep')->orderBy('name','asc')->paginate(15);
-
+        $schools=Etablissement::with('iep')->orderBy('created_at','desc')->paginate(15);
+        Flashy::info('Bienvenus sur la liste des Etablissements.');
         return view('admin.school.index', compact('schools'));
     }
 
@@ -66,9 +67,11 @@ class ASchoolController extends Controller
             'name' => 'required|string|unique:etablissements',
             'iep_id' => 'required'
         ]);
-        Etablissement::create($data);
+        $store = Etablissement::create($data);
 
-        return redirect()->route('admin-school.index')->with('success', 'Enregistrement effectué avec succès!');
+        Flashy::primary(sprintf('Etablissement "%s" enregistré avec succès!', $store->name));
+        return redirect()->route('admin-school.index');
+        // ->with('success', 'Enregistrement effectué avec succès!')
     }
 
     /**
@@ -110,13 +113,15 @@ class ASchoolController extends Controller
         $school=Etablissement::find($id);
 
         $data=$this->validate($request, [
-            'name' => 'required|string|unique:etablissements',
+            'name' => 'required|string|',
             'iep_id' => 'required',
         ]);
 
         $school->update($data);
+        Flashy::success(sprintf('Etablissement "%s" modifié avec succès!', $school->name));
 
-        return redirect()->route('admin-school.index')->with('success', 'Modification effectuée avec succès!');
+        return redirect()->route('admin-school.index');
+        // ->with('success', 'Modification effectuée avec succès!')
 
     }
 
@@ -131,7 +136,8 @@ class ASchoolController extends Controller
         $school=Etablissement::find($id);
         $school->delete();
 
-        return redirect()->back()
-        ->with('success','Ecole supprimée avec succès!');
+        Flashy::success(sprintf('Etablissement "%s" supprimé avec succès!', $school->name));
+        return redirect()->back();
+        // ->with('success','Ecole supprimée avec succès!');
     }
 }

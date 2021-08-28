@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('assets/styles/flash.css') }}">
         <script src="{{ asset('assets/scripts/main.js') }}" async></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -25,6 +26,8 @@
         <main>
             <div>
                 @include('message-flash')
+                <script src="//code.jquery.com/jquery.js"></script>
+                @include('flashy::users.message')
             </div>
             @yield('content')
         </main>

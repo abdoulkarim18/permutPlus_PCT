@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="{{ asset('assets/styles/form.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/styles/flash.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/admin-operations.css') }}">
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
         <!--ICON-->
         <link rel="icon" href="{% static 'website/assets/images/icon.png' %}">
@@ -28,9 +30,11 @@
             <!--header-->
             @include('admin.layout.partial.header')
             <main>
-            <div>
-                @include('message-flash')
-            </div>
+                <div>
+                    <script src="//code.jquery.com/jquery.js"></script>
+                    @include('flashy::message')
+                    @include('message-flash')
+                </div>
                 @yield('content')
             </main>
         </div>

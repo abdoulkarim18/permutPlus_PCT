@@ -7,27 +7,27 @@
         <ul>
             <li>
                 <a href="{{ route('admin-drens.index') }}">
-                    <span class="las la-list-ul"></span>
+                    <span class="fas fa-home"></span>
                     <span>Dren</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin-ieps.index') }}">
-                    <span class="las la-list-ul"></span>
+                    <span class="fas fa-pen"></span>
                     <span>IEP</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ route('admin-school.index') }}">
-                    <span class="las la-list-ul"></span>
+                    <span class="fas fa-school"></span>
                     <span>Etablissements</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ route('admin-users.index') }}">
-                    <span class="las la-list-ul"></span>
+                    <span class="fad fa-users"></span>
                     <span>Liste des utilisateurs</span>
                 </a>
             </li>

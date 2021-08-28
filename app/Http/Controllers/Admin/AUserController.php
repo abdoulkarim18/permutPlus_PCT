@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use MercurySeries\Flashy\Flashy;
 
 class AUserController extends Controller
 {
@@ -23,6 +24,7 @@ class AUserController extends Controller
     {
         $users=User::orderBy('nom','asc')->paginate(40);
         //dd($users);
+        Flashy::info('Bienvenus sur la liste des Utilisateurs.');
         return view('admin.users.index', compact('users'));
     }
 
@@ -79,20 +81,23 @@ class AUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $user=User::find($id);
        if(Auth::user()->id !=$request->userId){
             if($request->has('isAdmin')){
                 //dd($user);
                 $user->update(['isAdmin' =>1]);
-                return redirect()->route('admin-users.index')->with('success', 'Privilège accordée!');
+                Flashy::success(sprintf('Privilège accordée à "%s"!',$user->nom));
+                return redirect()->route('admin-users.index');
             }else{
                 $user->update(['isAdmin' =>0]);
-                return redirect()->route('admin-users.index')->with('success', 'Privilège rétirée!');
+                Flashy::primary(sprintf('Privilège rétirée à "%s"!',$user->nom));
+                return redirect()->route('admin-users.index');
             }
 
        }else{
-        return redirect()->back()->with('info', 'Cette opération ne peut-être effectuée!');
+            Flashy::info('Cette opération ne peut-être effectuée!');
+            return redirect()->back();
        }
 
     }
@@ -109,7 +114,7 @@ class AUserController extends Controller
 
         $user->delete();
 
-        return redirect()->back()
-        ->with('success','utilisateur supprimé avec succès!');
+        Flashy::error(sprintf('Utilisateur "%s" supprimé avec succès!',$user->nom));
+        return redirect()->back();
     }
 }

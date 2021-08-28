@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use App\Models\Dren;
+use MercurySeries\Flashy\Flashy;
 
 class AIepController extends Controller
 {
@@ -23,8 +24,9 @@ class AIepController extends Controller
      */
     public function index()
     {
-        $ieps=Iep::with('dren')->orderBy('name','asc')->paginate(20);
+        $ieps=Iep::with('dren')->orderBy('created_at','desc')->paginate(20);
         //dd($ieps);
+        Flashy::info('Bienvenus sur la liste des IEPs.');
         return view('admin.iep.index', compact('ieps'));
     }
 
@@ -42,12 +44,12 @@ class AIepController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function importExcelIep(Request $request) 
+    public function importExcelIep(Request $request)
     {
         Excel::import(new IepImport,$request->import_file);
 
         Session::put('success', 'Your file is imported successfully in database.');
-           
+
         return redirect()->route('admin-ieps.index');
     }
 
@@ -63,10 +65,13 @@ class AIepController extends Controller
             'name' =>'required|unique:ieps',
             'dren_id' => 'required'
         ]);
-        
-        Iep::create($data);
 
-        return redirect()->route('admin-ieps.index')->with('success', 'Enregistrement effectué avec succès!');
+       $store =  Iep::create($data);
+
+        Flashy::primary(sprintf('IEP "%s" enregistré avec succès!', $store->name));
+
+        return redirect()->route('admin-ieps.index');
+        // ->with('success', 'Enregistrement effectué avec succès!')
     }
     /**
      * Display the specified resource.
@@ -88,7 +93,7 @@ class AIepController extends Controller
     public function edit($id)
     {
         $iep=Iep::find($id);
-        
+
         $drens=Dren::all();
         return view('admin.iep.edit', compact('iep','drens'));
     }
@@ -113,7 +118,9 @@ class AIepController extends Controller
             'dren_id' => $request->dren_id
         ]);
 
-        return redirect()->route('admin-ieps.index')->with('success', 'Modification effectuée avec succès!');
+        Flashy::success(sprintf('IEP "%s" modifié avec succès!', $iep->name));
+        return redirect()->route('admin-ieps.index');
+        // ->with('success', 'Modification effectuée avec succès!')
     }
 
     /**
@@ -128,7 +135,8 @@ class AIepController extends Controller
 
         $iep->delete();
 
-        return redirect()->back()
-        ->with('success','IEP supprimée avec succès!');
+        Flashy::error(sprintf('IEP "%s" supprimé avec succès!', $iep->name));
+        return redirect()->back();
+        // ->with('success','IEP supprimée avec succès!');
     }
 }
