@@ -49,7 +49,7 @@ class PostulPermutation extends Notification
         return (new MailMessage)
                     ->line('
                     Je suis '. $this->user->nom .' '. $this->user->prenoms .' , je souhaite effectuer
-                    une permutation avec vous, je suis à la DREN' . $this->customRequest->odren.'
+                    une permutation avec vous, je suis à la DREN ' . $this->customRequest->odren.'
                     à l\'etablissement '. $this->customRequest->oschool.'. Vous pouvez me contacter
                     aux adresses suivantes : ' . $this->customRequest->phone . ', ' . $this->customRequest->email .'' )
                     ->action('Répondre', url('profile'))
