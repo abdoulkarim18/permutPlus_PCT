@@ -70,7 +70,7 @@ Réponse à une offre de permutation
                     </div>
                     <div class="button">
                         <button type="submit" class="success">Envoyer</button>
-                        <button class="cancel"><a href="{{ route('result') }}">Annuler</a></button>
+                        <button class="cancel"><a href="{{ route('search') }}">Annuler</a></button>
                     </div>
                 </form>
             </div>
