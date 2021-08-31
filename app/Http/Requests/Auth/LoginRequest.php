@@ -30,7 +30,7 @@ class LoginRequest extends FormRequest
     {
 
         return [
-            'matricule' => ['required','Regex:/^[0-9]{6}[A-Z]{1}/','unique:users'],
+            'matricule' => ['required','Regex:/^[0-9]{6}[A-Z]{1}/'],
             'password' => 'required',
         ];
     }
