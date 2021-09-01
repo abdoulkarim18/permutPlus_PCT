@@ -12,6 +12,7 @@ use App\Models\Etablissement;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\PostulPermutation;
+use MercurySeries\Flashy\Flashy;
 
 class PermutationController extends Controller
 {
@@ -97,7 +98,7 @@ class PermutationController extends Controller
 
     public function detailApply()
     {
-        return view('users.apply.postuler');
+        return view('users.apply. postuler');
     }
 
     /**
@@ -158,7 +159,10 @@ class PermutationController extends Controller
                     }
                 }
 
-            return redirect()->route('avis.index')->with("success","Demande effectuée avec succès!");
+            Flashy::primary('Demande effectuée avec succès!');
+
+            return redirect()->route('avis.index');
+            // ->with("success","Demande effectuée avec succès!")
         }
     }
 
@@ -221,7 +225,9 @@ class PermutationController extends Controller
                     $permutation->update($data);
                 }
             }
-        return redirect()->route('avis.index')->with("success","Modification de la demande effectuée avec succès!");
+            Flashy::success('Modification de la demande effectuée avec succès!');
+        return redirect()->route('avis.index');
+        // ->with("success","Modification de la demande effectuée avec succès!")
     }
 
     /**
@@ -235,8 +241,9 @@ class PermutationController extends Controller
         $permutation=CustomRequest::find($id);
         $permutation->delete();
 
-        return redirect()->back()
-        ->with('success','permutation supprimée avec succès!');
+        Flashy::error('permutation supprimée avec succès!');
+        return redirect()->back();
+        // ->with('success','permutation supprimée avec succès!');
     }
 
 }

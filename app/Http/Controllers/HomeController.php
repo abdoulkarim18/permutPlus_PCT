@@ -6,6 +6,7 @@ use App\Models\Iep;
 use App\Models\Dren;
 use Illuminate\Http\Request;
 use App\Models\CustomRequest;
+use MercurySeries\Flashy\Flashy;
 
 class HomeController extends Controller
 {
@@ -38,6 +39,7 @@ class HomeController extends Controller
         // $results = CustomRequest::where('odren',$dren)->get();
         $ieps = $this->searchIep($rdren->id);
         // dd($ieps);
+        Flashy::primary('Le(s) résultat(s) de votre demande.');
         return view('pages.result', compact('results', 'ieps'));
     }
     public function searchIep($id){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class UserController extends Controller
 {
@@ -29,6 +30,8 @@ class UserController extends Controller
         $data['state']=1;
         $user->update($data);
 
-        return redirect()->route('profile')->with('info', 'Votre profil a été modifié avec succès!');
+        Flashy::primary('Votre profil a été modifié avec succès!');
+        return redirect()->route('profile');
+        // ->with('info', 'Votre profil a été modifié avec succès!');
     }
 }

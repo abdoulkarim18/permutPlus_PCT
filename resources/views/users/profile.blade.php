@@ -9,6 +9,8 @@ Profil utilisateur
     <main>
         <div>
             @include('message-flash')
+            <script src="//code.jquery.com/jquery.js"></script>
+            @include('flashy::users.message')
         </div>
         <div class="account">
             <div class="form">

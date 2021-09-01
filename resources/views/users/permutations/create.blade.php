@@ -9,6 +9,8 @@ Demande de pumutation
     <main>
         <div>
             @include('message-flash')
+            <script src="//code.jquery.com/jquery.js"></script>
+            @include('flashy::users.message')
         </div>
         <div class="permutation">
             <div class="form">
@@ -26,13 +28,13 @@ Demande de pumutation
                     <div class="row">
                         <label for="siep">IEP actuelle</label>
                         <select name="oiep" id="oiep">
-                            <option value="">Choisissez une IEP</option> 
+                            <option value="">Choisissez une IEP</option>
                         </select>
                     </div>
                     <div class="row">
                         <label for="oschool">Etablissement actuel</label>
                         <select name="oschool" id="oschool">
-                            <option value="">Choisissez un établissement</option> 
+                            <option value="">Choisissez un établissement</option>
                         </select>
                     </div>
                     <div class="row">
@@ -48,7 +50,7 @@ Demande de pumutation
                     <div class="row">
                         <label for="siep">IEP souhaitée</label>
                         <select name="siep" id="siep">
-                            <option value="">Choisissez une IEP</option> 
+                            <option value="">Choisissez une IEP</option>
                         </select>
                     </div>
 
@@ -98,7 +100,7 @@ $(document).ready(function() {
             $('select[name="oiep"]').empty();
         }
     });
-    // affichage des établissements dynamiquement 
+    // affichage des établissements dynamiquement
     $('select[name="oiep"]').on('change', function() {
         var drenId = $(this).val();
         if(drenId) {
@@ -137,7 +139,7 @@ $(document).ready(function() {
         }
     });
 
-    // affichage des établissements dynamiquement 
+    // affichage des établissements dynamiquement
     $('select[name="siep"]').on('change', function() {
         var drenId = $(this).val();
         if(drenId) {

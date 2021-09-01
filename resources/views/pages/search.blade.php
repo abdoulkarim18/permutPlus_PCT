@@ -11,7 +11,7 @@ Page de recherche
     </div>
     <div class="menu"><i class="las la-bars"></i></div>
     <nav>
-        <div class="text-danger {{ auth()->user()->unreadNotifications->count() > 0 ? 'text-danger':''}}">
+        <div title="Notification" class="text-danger {{ auth()->user()->unreadNotifications->count() > 0 ? 'text-danger':''}}">
             <a href="{{route('notif')}}">
                 <span class="las la-bell"></span>
                 <span>
@@ -23,8 +23,8 @@ Page de recherche
                 </span>
             </a>
         </div>
-        <div><a href="{{ route('profile')}}"><span class="las la-igloo"></span></a></div>
-        <div><a href="{{ route('logout') }}"><span class="las la-sign-out-alt" onclick="event.preventDefault();
+        <div title="Profile"><a href="{{ route('profile')}}"><span class="las la-igloo"></span></a></div>
+        <div><a title="Deconnexion" href="{{ route('logout') }}"><span class="las la-sign-out-alt" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"></span></a></div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

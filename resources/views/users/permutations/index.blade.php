@@ -23,6 +23,8 @@ Liste des Permutations
     <main>
         <div>
             @include('message-flash')
+            <script src="//code.jquery.com/jquery.js"></script>
+            @include('flashy::users.message')
         </div>
         <div class="container">
             <div class="permutation">

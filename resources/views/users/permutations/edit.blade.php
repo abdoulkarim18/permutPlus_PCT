@@ -8,7 +8,7 @@ Edition d'une demande de permutation
 <div>
     <header>
         <div class="logo">
-            <a href="/">LOGO</a>
+            <a href="/">PERMUT+</a>
         </div>
         <div class="menu"><i class="las la-bars"></i></div>
     </header>
@@ -44,7 +44,7 @@ Edition d'une demande de permutation
                         <select name="oschool" id="oschool">
                             @foreach($etablissements as $etablissement)
                             <option value="{{ $etablissement->name }}"{{ $permutation->oschool==$etablissement->name ? 'selected':'' }}>{{ $etablissement->name }}</option>
-                            @endforeach 
+                            @endforeach
                         </select>
                     </div>
                     <div class="row">
@@ -113,7 +113,7 @@ $(document).ready(function() {
             $('select[name="oiep"]').empty();
         }
     });
-    // affichage des établissements dynamiquement 
+    // affichage des établissements dynamiquement
     $('select[name="oiep"]').on('change', function() {
         var drenId = $(this).val();
         if(drenId) {
@@ -152,7 +152,7 @@ $(document).ready(function() {
         }
     });
 
-    // affichage des établissements dynamiquement 
+    // affichage des établissements dynamiquement
     $('select[name="siep"]').on('change', function() {
         var drenId = $(this).val();
         if(drenId) {

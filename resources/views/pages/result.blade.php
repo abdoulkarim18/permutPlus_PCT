@@ -12,7 +12,7 @@ Résultats
     <div class="menu"><i class="las la-bars"></i></div>
     @if(!Auth::user()->isAdmin)
     <nav>
-        <div class="text-danger {{ auth()->user()->unreadNotifications->count() > 0 ? 'text-danger':''}}">
+        <div title="Notification" class="text-danger {{ auth()->user()->unreadNotifications->count() > 0 ? 'text-danger':''}}">
             <a href="{{route('notif')}}">
                 <span class="las la-bell">
                     <sup>
@@ -25,8 +25,8 @@ Résultats
                 </span>
             </a>
         </div>
-        <div><a href="{{route('avis.index')}}"><span class="las la-igloo"></span></a></div>
-        <div><a href="{{ route('logout') }}"><span class="las la-sign-out-alt" onclick="event.preventDefault();
+        <div title="Profile"><a href="{{route('avis.index')}}"><span class="las la-igloo"></span></a></div>
+        <div title="Deconnection"><a href="{{ route('logout') }}"><span class="las la-sign-out-alt" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"></span></a></div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -52,6 +52,10 @@ Résultats
                 <button type="submit">Rechercher</button>
             </div>
         </form>
+    </div>
+    <div>
+        <script src="//code.jquery.com/jquery.js"></script>
+        @include('flashy::users.message')
     </div>
 @if(count($results) != 0)
     <div class="resultats">

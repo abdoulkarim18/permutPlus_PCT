@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        Flashy::primary('Bienvenus,veuillez entrez vos identifiant pour vous connecté');
+        Flashy::primary('Veuillez entrez vos identifiant pour vous connecté');
         return view('auth.login');
     }
 
@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        Flashy::primary('Vous êtes la bienvenus sur PERMUT+ !');
+        Flashy::primary('Vous êtes la bienvenus sur PERMUT+');
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

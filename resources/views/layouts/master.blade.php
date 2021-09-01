@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/flash.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/permutations.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/notifications.css') }}">
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--ICON-->
         <link rel="icon" href="{% static 'website/assets/images/icon.png' %}">
@@ -33,7 +34,7 @@
             @yield('content')
         </div>
 
-        {# <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script> #}
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
             @yield('script')
 
